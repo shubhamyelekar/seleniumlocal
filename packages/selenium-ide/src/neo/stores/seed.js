@@ -19,7 +19,7 @@ import generate from "project-name-generator";
 import { CommandsArray } from "../models/Command";
 import UiState from "./view/UiState";
 
-export default function seed(store, numberOfSuites = 5) {
+export default function seed(store, numberOfSuites = 0) {
   function generateSuite() {
     return store.createSuite(generate({ words: 2}).spaced);
   }
@@ -33,6 +33,7 @@ export default function seed(store, numberOfSuites = 5) {
     let targetChance = Math.floor(Math.random() * 10);
     command.setTarget(targetChance < targets.length ? targets[targetChance] : "");
     command.setValue(Math.floor(Math.random() * 2) ? generate({ words: 1}).spaced : "");
+    
     return command;
   }
   function randomBetween(min, max) {

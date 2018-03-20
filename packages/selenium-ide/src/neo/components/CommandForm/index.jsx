@@ -68,7 +68,7 @@ import "./style.css";
           <Input
             id="comment"
             name="comment"
-            label="Comment"
+            label="Name"
             value={this.props.command ? this.props.command.comment : ""}
             disabled={!this.props.command}
             onChange={this.props.command ? this.props.command.setComment : null} />

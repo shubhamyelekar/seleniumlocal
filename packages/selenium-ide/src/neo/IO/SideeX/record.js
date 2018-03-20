@@ -36,6 +36,7 @@ export default function record(command, targets, value, insertBeforeLastCommand 
     const newCommand = test.createCommand();
     newCommand.setCommand(command);
     newCommand.setValue(value);
+    //newCommand.setComment("shubham");
     const url = new URL(targets);
     UiState.setUrl(url.origin, true);
     newCommand.setTarget(url.pathname);

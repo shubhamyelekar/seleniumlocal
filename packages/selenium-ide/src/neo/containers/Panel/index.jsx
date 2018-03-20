@@ -55,11 +55,9 @@ const project = observable(new ProjectStore());
 
 UiState.setProject(project);
 
-if (process.env.NODE_ENV === "production") {
+//if (process.env.NODE_ENV === "production") {
   UiState.selectTest(project.createTestCase("Untitled"));
-} else {
-  seed(project, 0);
-}
+
 
 modify(project);
 

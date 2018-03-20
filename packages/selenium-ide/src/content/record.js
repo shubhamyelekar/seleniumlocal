@@ -23,7 +23,29 @@ const getText = window.global.getText;
 const normalizeSpaces = window.global.normalizeSpaces;
 
 export const locatorBuilders = new LocatorBuilders(window);
-
+const assignName=(elementLoc) =>{
+if(elementLoc.innerText!="")
+{
+  return elementLoc.innerText
+}
+else if(elementLoc.getAttribute("data-test-id")!=null && elementLoc.getAttribute("data-test-id")!="")
+{
+  return elementLoc.getAttribute("data-test-id");
+}
+else if(elementLoc.getAttribute("formcontrolname")!=null && elementLoc.getAttribute("formcontrolname")!="")
+{
+  return elementLoc.getAttribute("formcontrolname");
+}
+else if(elementLoc.getAttribute("id")!=null && elementLoc.getAttribute("id")!="")
+{
+  return elementLoc.getAttribute("id");
+}
+else if(elementLoc.getAttribute("name")!=null && elementLoc.getAttribute("name")!="")
+{
+  return elementLoc.getAttribute("name");
+}
+return "";
+}
 let preventClickTwice = false;
 if (Recorder) {
   Recorder.addEventHandler("clickAt", "click", function(event) {
@@ -37,7 +59,9 @@ if (Recorder) {
           left -= element.offsetLeft;
           element = element.offsetParent;
         } while (element);
-        record("clickAt", locatorBuilders.buildAll(event.target), left + "," + top);
+        //console.log("asasas");
+       console.log(assignName(event.target));
+        record("clickAt",locatorBuilders.buildAll(event.target),left + "," + top+"|;;|"+assignName(event.target));
         preventClickTwice = true;
       }
       setTimeout(function() { preventClickTwice = false; }, 30);
@@ -54,7 +78,7 @@ if (Recorder) {
       left -= element.offsetLeft;
       element = element.offsetParent;
     } while (element);
-    record("doubleClickAt", locatorBuilders.buildAll(event.target), left + "," + top);
+    record("doubleClickAt", locatorBuilders.buildAll(event.target),left + "," + top+"|;;|"+assignName(event.target));
   }, true);
 
   //Record: SendKeys

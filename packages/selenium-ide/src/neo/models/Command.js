@@ -60,6 +60,10 @@ export default class Command {
 
   @action.bound setValue(value) {
     this.value = value.replace(/\n/g, "\\n");
+    //  if(String(value).indexOf("|;;|"!=-1))
+    // {
+    //   this.comment=String(value).substring(String(value).indexOf("|;;|")+1);
+    // }
   }
 
   static fromJS = function(jsRep) {
@@ -68,6 +72,7 @@ export default class Command {
     command.setCommand(jsRep.command);
     command.setTarget(jsRep.target);
     command.setValue(jsRep.value);
+    
 
     return command;
   }
