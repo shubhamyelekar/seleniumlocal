@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <img src="packages/selenium-ide/src/icons/icon128.png" alt="logo" height="128" align="right" />
 
 # Selenium IDE &middot; [![Build Status](https://travis-ci.org/SeleniumHQ/selenium-ide.svg?branch=master)](https://travis-ci.org/SeleniumHQ/selenium-ide)
@@ -56,3 +57,6 @@ Here's a draft of the general tasks ahead. Feel free to pitch in and announce wh
 We coordinate work on the [#selenium](irc://freenode.net/selenium) IRC
 channel, which is also available on
 [Slack](https://seleniumhq.herokuapp.com).
+=======
+# seleniumlocal
+>>>>>>> 108b77a819062551aa6bee814038d53fb6ad3dd1
